@@ -5,7 +5,7 @@ int main()
 {
 	Sv sv;
 	try {
-		sv.Initialize();
+;		sv.Initialize();
 		sv.Config();
 	}
 	catch (const std::exception& e) {

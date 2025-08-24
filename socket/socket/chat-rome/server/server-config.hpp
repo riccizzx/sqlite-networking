@@ -7,6 +7,7 @@
 #include <thread>
 #include <vector>
 #include <iostream>
+#include <string_view>
 #include <WS2tcpip.h>
 #include <WinSock2.h>
 
@@ -91,6 +92,9 @@ extern ListNode* userList;
 //using UserList = std::vector<User>;
 
 namespace server {
+
+    void* handleRequest(int* fd);
+
     const char* stateMsg(StateRet stateRet);
     void copyUser(User& dest, const User& src);
 
