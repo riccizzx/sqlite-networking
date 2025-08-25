@@ -56,14 +56,14 @@ enum class StateRet {
 
 class Message {
 public:
-    std::string content;
-    MessageType msgType{};
-    StateRet msgRet{};
-    sockaddr_in sendAddr{};
-    sockaddr_in recvAddr{};
-    std::string sendName;
-    std::string recvName;
-    std::string msgTime;
+    char content[2048];
+    int msgType;
+    int msgRet;
+    sockaddr_in sendAddr;
+    sockaddr_in recvAddr;
+    char sendName[20];
+    char recvName[20];
+    char msgTime[20];
 };
 
 class User {
@@ -84,7 +84,7 @@ public:
 
 class ListNode {
     User user;
-    struct _ListNode* next;
+    ListNode* next = nullptr;
 };
 
 extern ListNode* userList;
@@ -98,7 +98,7 @@ namespace server {
     const char* stateMsg(StateRet stateRet);
     void copyUser(User& dest, const User& src);
 
-    void enterChat(int fd);
+    void enterChat(int *fd);
     int groupChat(const Message& msg, int sockfd);
     int personalChat(const Message& msg, int sockfd);
     int viewUserList(const Message& msg, int sockfd);
