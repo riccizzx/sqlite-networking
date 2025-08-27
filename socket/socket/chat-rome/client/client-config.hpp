@@ -1,32 +1,31 @@
-﻿#pragma once
+﻿
+#pragma once
 
 #ifndef WINSOCK_CLIENT_CONFIG_HPP
 #define WINSOCK_CLIENT_CONFIG_HPP
 
-#include <string>
-#include <thread>
-#include <vector>
-#include <iostream>
-#include <string_view>
-#include <WS2tcpip.h>
-#include <WinSock2.h>
+#include "chat-rome/server/server-config.hpp"
 
-//sqlite3 library
-#include "winsqlite/winsqlite3.h"
+namespace client {
+    class Cl {
+    public:
+        void Init();
+        void conn();
+    private:
+        WSADATA wsa;
+        SOCKET clientSock;
+        sockaddr_in clientAddr;
+        void quit();
+    };
+}
 
-// winsock library
-#pragma comment(lib, "ws2_32.lib")
-
-constexpr const char* DB_NAME = "/sqlite-networking/socket/chat-rome/chatRome.db";
-constexpr int PORT = 9909;
-constexpr int MAX_LINE = 8192;
-constexpr int LISTEN_QUEUE = 6000;
-
+/*
 enum class Flag {
 	YES,
 	NO
 };
 
+// msg type for hadle options
 enum class MessageType {
     REGISTER = 1,
     LOGIN,
@@ -54,6 +53,7 @@ enum class StateRet {
     MESSAGE_SELF
 };
 
+//message transfer class
 class Message {
 public:
     char content[2048];
@@ -88,6 +88,7 @@ class ListNode {
 };
 
 extern ListNode* userList;
+*/
 
 #endif
 
