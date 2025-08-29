@@ -11,6 +11,9 @@ namespace client {
     public:
         void Init();
         void conn();
+        void mainInterface();
+        void helpInterface();
+        void chatInterface();
     private:
         WSADATA wsa;
         SOCKET clientSock;

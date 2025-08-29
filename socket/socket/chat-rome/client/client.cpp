@@ -18,6 +18,7 @@ void client::Cl::Init() {
 }
 
 void client::Cl::conn() {
+	Cl cli;
 	if (connect(clientSock, (sockaddr*)&clientAddr, sizeof(clientAddr)) == SOCKET_ERROR) {
 		std::cerr << "Can't connect to the server: " << WSAGetLastError();
 		WSACleanup();
@@ -25,6 +26,8 @@ void client::Cl::conn() {
 	else {
 		std::cout << "Connected to the server!";
 	}
+
+	cli.mainInterface();
 	
 
 }

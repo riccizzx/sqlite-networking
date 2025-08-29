@@ -6,7 +6,7 @@ include_directories(${CMAKE_SOURCE_DIR}/socket)
 #
 
 # Add source to this project's executable.
-add_executable (socket "socket.cpp" "socket.h" "chat-rome/server/server-config.cpp" "chat-rome/client/client-config.cpp" "chat-rome/server/server.cpp" "chat-rome/server/chat.cpp" "chat-rome/client/client.cpp")
+add_executable (socket "socket.cpp" "socket.h" "chat-rome/server/server-config.cpp" "chat-rome/client/client-config.cpp" "chat-rome/server/server.cpp" "chat-rome/server/chat.cpp" "chat-rome/client/client.cpp" "chat-rome/client/interace.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET socket PROPERTY CXX_STANDARD 20)
